@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Smart KSRTC
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-fab center bottom (click)="listen()">
+    <button ion-fab><ion-icon name="mic"></ion-icon></button>
+    <!-- <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list> -->
+  </ion-fab>
+  <!-- <button ion-button (click)="listen()" ><ion-icon name="mic" > -->
+        <!-- <label>Speak to me</label> -->
+  <!-- </ion-icon></button> -->
+
+<div *ngIf="blnBuslist">
+
+
+  <ion-card *ngFor="let bus of lstBuses" >
+    <!-- <img src="img/nin-live.png"/> -->
+    <ion-card-content>
+      <ion-card-title>
+        {{bus.route}}
+        <div style="float:right"> ₹{{bus.price}}</div>
+        </ion-card-title>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col col-5>
+              Departure : {{bus.dep}}
+            </ion-col>
+            <ion-col col-2>
+            </ion-col>
+            <ion-col col-5>
+              Arrival : {{bus.arr}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            via {{bus.via}}
+          </ion-row>
+          <ion-row>
+            {{bus.type}}
+          </ion-row>
+        </ion-grid>
+
+    </ion-card-content>
+  </ion-card>
+</div>
+
+<div *ngIf="blnHotel">
+
+
+  <ion-card *ngFor="let hotel of lstHotels" >
+    <!-- <img src="img/nin-live.png"/> -->
+    <ion-card-content>
+      <ion-card-title>
+        {{hotel.name}}
+        </ion-card-title>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col col-5>
+               ₹ {{hotel.price}}
+            </ion-col>
+            <ion-col col-2>
+            </ion-col>
+
+          </ion-row>
+          <ion-row>
+            via {{hotel.type}}
+          </ion-row>
+
+        </ion-grid>
+
+    </ion-card-content>
+  </ion-card>
+</div>
+
+</ion-content>
